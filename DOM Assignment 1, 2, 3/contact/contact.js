@@ -1,13 +1,25 @@
-let leftDetails = document.querySelector(".mainLeftDetails");
-let enterName = document.querySelector("enterName");
-let email = document.querySelector("enterMail");
-let message = document.querySelector("enterMessage");
-let rightDetails = document.querySelector(".mainRightDetails");
-let userName = document.querySelector("usrerName");
-let userMail = document.querySelector("userMail");
-let userMessage = document.querySelector("userMessage");
+const inputName = document.querySelector(".userName")
+const inputEmail = document.querySelector(".userEmail")
+const inputMessage = document.querySelector(".userMessage")
+const outputName = document.querySelector(".enterName")
+const outputEmail = document.querySelector(".enterMail")
+const outputMessage = document.querySelector(".enterMessage")
 
-rightDetails.addEventListener("submit", function (e) {
-  e.preventDefault();
-  enterName.innerHTML = userName.value;
-});
+window.localStorage.setItem("inputName",inputName.value)
+
+const btns = document.querySelectorAll("button")
+
+
+btns[2].addEventListener("click",(event)=>{   
+    outputName.value = inputName.value;
+    outputEmail.value = inputEmail.value;
+    outputMessage.value = inputMessage.value;
+    event.preventDefault()
+})
+
+btns[1].addEventListener("click",(event)=>{
+    outputName.value = "";
+    outputEmail.value = "";
+    outputMessage.value = "";
+    event.preventDefault()
+})
